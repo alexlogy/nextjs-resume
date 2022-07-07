@@ -76,7 +76,7 @@ export default class Contact extends React.Component {
                             variant="subtitle1"
                             color="inherit"
                         >
-                            {UserInfo.email}
+                            <a href={"mailto:" + UserInfo.email} target="_blank" rel="noreferrer">{UserInfo.email}</a>
                         </Typography>
                     </Grid>
                 </Grid>
