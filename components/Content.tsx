@@ -10,9 +10,12 @@ export default class Content extends React.Component {
         return (
             // @ts-ignore
             <Grid2 item
-                  xs={false}
-                  sm={8}
-                  md={8}
+                   size={{
+                       xs: 12,
+                       sm: 5,
+                       lg: 5,
+                       xl: 4,
+                   }}
                   sx={{
                       display: 'flex',
                       flexDirection: 'column',
