@@ -1,5 +1,5 @@
-import React from 'react'
-import {Grid, Typography, Tooltip, Box} from "@mui/material";
+import React, { ReactElement } from 'react'
+import {Link, Typography, Box, SvgIconProps} from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
@@ -8,6 +8,46 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import {UserInfo} from '../../consts/constants';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import WebIcon from '@mui/icons-material/Web';
+
+interface ContactItemProps {
+    icon: ReactElement<SvgIconProps>;
+    text: string;
+    href?: string;
+}
+
+const ContactItem: React.FC<ContactItemProps> = ({ icon: icon, text: text, href: href }) => (
+    <Box
+        sx={{
+            display: 'flex',
+            alignItems: 'center',
+            my: 1,
+            gap: 2,
+        }}
+    >
+        {icon}
+        <Link
+            href={href || '#'}
+            target="_blank"
+            variant="inherit"
+            underline="none"
+            sx={{
+                color: 'text.primary',
+                textDecoration: 'none',
+                '&:hover': {
+                    textDecoration: 'underline',
+                    color: '#FFFFFF',
+                }
+            }}
+        >
+            <Typography
+                variant="body1"
+                color="#FFFFFF"
+            >
+                {text}
+            </Typography>
+        </Link>
+    </Box>
+);
 
 export default class Contact extends React.Component {
     render() {
@@ -28,159 +68,38 @@ export default class Contact extends React.Component {
                         marginBottom: 2
                     }}
                 >
-                    <ContactPageIcon color="info" /> CONTACT
+                    <ContactPageIcon color="info" /> <b>CONTACT</b>
                 </Typography>
-                <Grid container
-                      direction="row"
-                      alignItems='left'
-                      spacing={0}
-                >
-                    <Grid item
-                          xs={12}
-                          md={2}
-                    >
-                        <Tooltip title="Website">
-                            <WebIcon />
-                        </Tooltip>
-                    </Grid>
-                    <Grid item
-                          xs={12}
-                          md={10}
-                    >
-                        <Typography
-                            variant="subtitle1"
-                            color="inherit"
-                        >
-                            <a href={UserInfo.website} target="_blank" rel="noreferrer">{UserInfo.website}</a>
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container
-                      direction="row"
-                      alignItems='left'
-                      spacing={0}
-                    >
-                    <Grid item
-                          xs={12}
-                          md={2}
-                          >
-                        <Tooltip title="Email">
-                            <EmailIcon />
-                        </Tooltip>
-                    </Grid>
-                    <Grid item
-                          xs={12}
-                          md={10}
-                    >
-                        <Typography
-                            variant="subtitle1"
-                            color="inherit"
-                        >
-                            <a href={"mailto:" + UserInfo.email} target="_blank" rel="noreferrer">{UserInfo.email}</a>
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container
-                      direction="row"
-                      alignItems='left'
-                      spacing={0}
-                >
-                    <Grid item
-                          xs={12}
-                          md={2}
-                    >
-                        <Tooltip title="Telegram">
-                            <TelegramIcon />
-                        </Tooltip>
-                    </Grid>
-                    <Grid item
-                          xs={12}
-                          md={10}
-                    >
-                        <Typography
-                            variant="subtitle1"
-                            color="inherit"
-                        >
-                            <a href={"https://t.me/" + UserInfo.telegramID.substring(1)} target="_blank" rel="noreferrer">{UserInfo.telegramID}</a>
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container
-                      direction="row"
-                      alignItems='left'
-                      spacing={0}
-                >
-                    <Grid item
-                          xs={12}
-                          md={2}
-                    >
-                        <Tooltip title="Current Location">
-                            <MyLocationIcon />
-                        </Tooltip>
-                    </Grid>
-                    <Grid item
-                          xs={12}
-                          md={10}
-                    >
-                        <Typography
-                            variant="subtitle1"
-                            color="inherit"
-                        >
-                        {UserInfo.location}
-                        </Typography>
-                    </Grid>
-                </Grid>
-                <Grid container
-                      direction="row"
-                      alignItems='left'
-                      spacing={0}
-                >
-                    <Grid item
-                          xs={12}
-                          md={2}
-                    >
-                        <Tooltip title="LinkedIn">
-                            <LinkedInIcon />
-                        </Tooltip>
-                    </Grid>
-                    <Grid item
-                          xs={12}
-                          md={10}
-                    >
-                        <Typography
-                            variant="subtitle1"
-                            color="inherit"
-                        >
-                            <a href={UserInfo.linkedin} target="_blank" rel="noreferrer">{UserInfo.linkedin}</a>
-                        </Typography>
-                    </Grid>
-                    <Grid container
-                          direction="row"
-                          alignItems='left'
-                          spacing={0}
-                    >
-                        <Grid item
-                              xs={12}
-                              md={2}
-                        >
-                            <Tooltip title="GitHub">
-                                <GitHubIcon />
-                            </Tooltip>
-                        </Grid>
-                        <Grid item
-                              xs={12}
-                              md={10}
-                        >
-                            <Typography
-                                variant="subtitle1"
-                                color="inherit"
-                            >
-                                <a href={UserInfo.github} target="_blank" rel="noreferrer">{UserInfo.github}</a>
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
+                <ContactItem
+                    icon={<WebIcon />}
+                    text={UserInfo.website}
+                    href={UserInfo.website}
+                />
+                <ContactItem
+                    icon={<EmailIcon />}
+                    text={UserInfo.email}
+                    href={`mailto:${UserInfo.email}`}
+                />
+                <ContactItem
+                    icon={<TelegramIcon />}
+                    text={UserInfo.telegramID}
+                    href={`https://t.me/${UserInfo.telegramID.replace('@', '')}`}
+                />
+                <ContactItem
+                    icon={<MyLocationIcon />}
+                    text={UserInfo.location}
+                    href={`https://maps.google.com.sg/?q=${UserInfo.location}`}
+                />
+                <ContactItem
+                    icon={<LinkedInIcon />}
+                    text={UserInfo.linkedin}
+                    href={UserInfo.linkedin}
+                />
+                <ContactItem
+                    icon={<GitHubIcon />}
+                    text={UserInfo.github}
+                    href={UserInfo.github}
+                />
             </Box>
         )
     }

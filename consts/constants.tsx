@@ -1,5 +1,14 @@
 import React from 'react'
 
+export const SiteInfo = {
+    metaDescription: 'a tech resume template created with NextJS!',
+}
+
+export const SummaryInfo = {
+    summary: `I'm a beer ninja who never say no to an ice-cold beer!
+    `,
+};
+
 export const UserInfo = {
     firstName: 'Beer',
     lastName: 'Ninja',
@@ -14,20 +23,22 @@ export const UserInfo = {
 };
 
 export const ProgrammingInfo = {
-    'Python': 100,
-    'HTML/CSS': 80,
+    'Python': 75,
+    'HTML/CSS': 1,
     'Javascript': 75,
 }
 
 export const LanguageInfo = {
-    'English': 100,
+    'English': 1,
+    'BeerLanguage': 100,
 }
 
 export const SkillsInfo = [
     "AWS",
     "GitOps",
     "SQL",
-    "HTML/CSS"
+    "NextJS",
+    "JavaScript",
 ]
 
 export const ExperiencesInfo = [
@@ -62,6 +73,9 @@ export const EducationInfo = [
         startDate: "1997",
         endDate: "1999",
         isCurrent: false,
+        responsibilities: [
+            "drinking beer in class everyday",
+        ]
     }
 ]
 

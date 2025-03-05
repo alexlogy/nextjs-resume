@@ -20,11 +20,13 @@ export default class Certifications extends React.Component {
                     variant="h5"
                     color="#424242"
                     sx={{
+                        fontWeight: 700,
                         marginBottom: 2
                     }}
                 >
-                    <BadgeIcon color="info" />  <b>CERTIFICATIONS</b>
+                    <BadgeIcon color="info" />  CERTIFICATIONS
                 </Typography>
+                <Divider />
                 {/* Experiences */}
                 {Object.entries(CertificationsInfo).map(([key,value]) => (
                     <Fragment key={key}>
@@ -38,20 +40,31 @@ export default class Certifications extends React.Component {
                             }}
                         >
                             <Typography
+                                variant="h5"
+                                color="#424242"
+                            >
+                                {value.certName}
+                            </Typography>
+                            <Typography
                                 variant="h6"
                                 color="#424242"
                             >
-                                {value.certName} @ {value.certIssuer}
+                                {value.certIssuer}
                             </Typography>
                             <Typography
                                 variant="subtitle2"
                                 color="#455a64"
                             >
-                                {value.certDate} - {value.expiryDate}
+                                Issued {value.certDate}
+                            </Typography>
+                            <Typography
+                                variant="subtitle2"
+                                color="#455a64"
+                            >
+                                Expiry {value.expiryDate}
                             </Typography>
 
                         </Box>
-                        <Divider />
                     </Fragment>
                 ))
                 }

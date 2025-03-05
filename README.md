@@ -1,8 +1,12 @@
-## nextjs-resume
+# nextjs-resume
 
-This is a resume template created in nextjs. Please feel free to use this template and modify. I did this in my free time to try out nextjs framework.
+This is a resume template created in NextJS. Please feel free to use this template and modify. I did this in my free time to try out nextjs framework.
 
-### Install Dependencies
+![NextJS Resume](/screenshots/nextjs-resume-screenshot.png)
+
+## Installation
+
+### Install the dependencies
 
 ```bash
 npm install

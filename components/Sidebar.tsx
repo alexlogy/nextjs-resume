@@ -3,17 +3,22 @@ import Contact from '../components/sidebar/Contact';
 import Skills from '../components/sidebar/Skills';
 import Programming from '../components/sidebar/Programming';
 import Languages from '../components/sidebar/Languages';
-import {Avatar, Grid, Typography, Box} from "@mui/material";
+import {Avatar, Grid2, Typography, Box} from "@mui/material";
 import {UserInfo} from '../consts/constants';
 
 export default class Sidebar extends React.Component {
 
     render() {
         return (
-            <Grid item
-                  xs={false}
-                  sm={4}
-                  md={4}
+            // @ts-ignore
+            <Grid2
+                  item
+                  size={{
+                      xs: 12,
+                      sm: 5,
+                      lg: 5,
+                      xl: 4,
+                  }}
                   sx={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -64,7 +69,7 @@ export default class Sidebar extends React.Component {
                     <Programming />
                     <Languages />
                 </Box>
-            </Grid>
+            </Grid2>
         )
     }
 }

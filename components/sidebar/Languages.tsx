@@ -52,7 +52,7 @@ export default class Languages extends React.Component {
                         marginBottom: 2
                     }}
                 >
-                    <LanguageIcon color="info" /> LANGUAGE
+                    <LanguageIcon color="info" /> <b>LANGUAGES</b>
                 </Typography>
                 {/* Language */}
                 {Object.entries(LanguageInfo).map(([key,value]) => (

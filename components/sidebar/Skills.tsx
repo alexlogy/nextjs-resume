@@ -22,7 +22,7 @@ export default class Skills extends React.Component {
                         marginBottom: 2
                     }}
                 >
-                    <FactCheckIcon color="info" /> SKILLS
+                    <FactCheckIcon color="info" /> <b>SKILLS</b>
                 </Typography>
                 {/* Skills */}
                 <Stack

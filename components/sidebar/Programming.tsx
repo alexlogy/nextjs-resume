@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import LinearProgress from '@mui/material/LinearProgress';
 import {ProgrammingInfo} from '../../consts/constants';
 import CodeIcon from '@mui/icons-material/Code';
+import TerminalIcon from '@mui/icons-material/Terminal';
+import DeveloperModeIcon from '@mui/icons-material/DeveloperMode';
 
 function ProgrammingSkill(language: string, proficiency: number) {
     return (
@@ -63,10 +65,11 @@ export default class Programming extends React.Component {
                     variant="h5"
                     color="inherit"
                     sx={{
+                        fontWeight: 700,
                         marginBottom: 2
                     }}
                 >
-                    <CodeIcon color="info" /> PROGRAMMING
+                    <DeveloperModeIcon color="info" /> PROGRAMMING
                 </Typography>
                 {/* Programming Skills */}
                 {Object.entries(ProgrammingInfo).map(([key,value]) => (
