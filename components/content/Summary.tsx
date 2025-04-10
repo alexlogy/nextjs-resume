@@ -40,6 +40,7 @@ export default class Summary extends React.Component {
                     <Typography
                         variant="body1"
                         color="#424242"
+                        style={{ whiteSpace: 'pre-line' }}
                     >
                         {SummaryInfo.summary}
                     </Typography>
